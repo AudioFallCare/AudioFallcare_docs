@@ -345,11 +345,13 @@ AudioFallCare/
 │   ├── api/            # API 엔드포인트
 │   ├── websocket/      # WebSocket 핸들러
 │   └── services/       # 비즈니스 로직
-├── recorder/           # 리코더 클라이언트
-│   ├── src/
-│   └── public/
-└── webapp/             # 보호자 웹앱
+└── client/             # 통합 프론트엔드
     ├── src/
+    │   ├── pages/
+    │   │   ├── Entry/       # 진입 화면 (로그인 + 코드입력)
+    │   │   ├── Guardian/    # 보호자 웹앱
+    │   │   └── Recorder/    # 리코더 클라이언트
+    │   └── components/      # 공통 컴포넌트
     └── public/
 ```
 
