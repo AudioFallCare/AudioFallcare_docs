@@ -185,7 +185,7 @@
 | Docker Compose | 로컬 개발 환경 |
 | GitHub Actions | CI/CD |
 | Nginx | 리버스 프록시 |
-| AWS / NCP | 클라우드 호스팅 |
+| Vercel / AWS | 클라우드 호스팅 |
 
 ---
 
