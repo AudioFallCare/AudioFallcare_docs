@@ -166,7 +166,8 @@
 | Python | 3.11 | AI 서버 언어 |
 | FastAPI | 0.109.x | API 프레임워크 |
 | PyTorch | 2.x | 딥러닝 프레임워크 |
-| librosa | 0.10.x | 오디오 처리 |
+| torchaudio | 2.x | 오디오 로딩/리샘플링/Mel Spectrogram |
+| librosa | 0.10.x | dB 변환/고급 오디오 분석 |
 | NumPy | 1.26.x | 수치 연산 |
 | Uvicorn | 0.27.x | ASGI 서버 |
 | Pydantic | 2.x | 데이터 검증 |
@@ -438,15 +439,19 @@ Output: 낙상 확률 (0~1)
 ```
 
 ### 7.2 오디오 전처리
-| 단계 | 설명 | 파라미터 |
-|------|------|----------|
-| 1. 로드 | 오디오 파일 로드 | - |
-| 2. 리샘플링 | 16kHz로 변환 | sample_rate=16000 |
-| 3. 모노 변환 | 스테레오→모노 | mono=True |
-| 4. 길이 조정 | 3초로 패딩/자르기 | max_length=3s |
-| 5. Mel Spectrogram | 시간-주파수 변환 | n_mels=64, n_fft=1024 |
-| 6. dB 변환 | Power to dB | ref=np.max |
-| 7. 정규화 | 평균 0, 표준편차 1 | - |
+| 단계 | 설명 | 파라미터 | 라이브러리 |
+|------|------|----------|------------|
+| 1. 로드 | 오디오 파일 로드 | - | torchaudio |
+| 2. 리샘플링 | 16kHz로 변환 | sample_rate=16000 | torchaudio.transforms.Resample |
+| 3. 모노 변환 | 스테레오→모노 | mono=True | torchaudio |
+| 4. 길이 조정 | 3초로 패딩/자르기 | max_length=3s | torch |
+| 5. Mel Spectrogram | 시간-주파수 변환 | n_mels=64, n_fft=1024 | torchaudio.transforms.MelSpectrogram |
+| 6. dB 변환 | Power to dB | ref=np.max | librosa.power_to_db |
+| 7. 정규화 | 평균 0, 표준편차 1 | - | torch |
+
+> **torchaudio + librosa 혼합 사용 이유**
+> - **torchaudio**: GPU 가속 지원, PyTorch 텐서와 직접 연동, 실시간 처리에 최적화
+> - **librosa**: dB 변환 등 일부 고급 기능에서 안정적인 결과 제공
 
 ### 7.3 모델 성능
 | 메트릭 | 값 |
