@@ -1,7 +1,7 @@
 name: Code Review
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize]
 
 jobs:
@@ -12,21 +12,20 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v44
-
-      - name: Review PR
+      - name: Get PR info
+        id: pr-info
         uses: actions/github-script@v7
         with:
           script: |
-            const changedFiles = '${{ steps.changed-files.outputs.all_changed_files }}'.split(' ');
-            const additions = ${{ github.event.pull_request.additions }};
-            const deletions = ${{ github.event.pull_request.deletions }};
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number
+            });
+
+            const changedFiles = files.map(f => f.filename);
+            const additions = context.payload.pull_request.additions;
+            const deletions = context.payload.pull_request.deletions;
             const changedFilesCount = changedFiles.length;
 
             let review = [];
@@ -62,19 +61,11 @@ jobs:
             if (fileTypes.others.length) review.push(`- 📦 기타: ${fileTypes.others.length}개`);
             review.push('');
 
-            // Checklist for docs
-            review.push('### ✅ 체크리스트');
-            review.push('- [ ] 문서 내용이 정확한지 확인');
-            review.push('- [ ] 오타 및 문법 오류 확인');
-            review.push('- [ ] 링크가 올바르게 작동하는지 확인');
-            review.push('- [ ] 이미지가 올바르게 표시되는지 확인');
-            review.push('');
-
             // Post comment
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: context.issue.number
+              issue_number: context.payload.pull_request.number
             });
 
             const botComment = comments.find(c => c.user.login === 'github-actions[bot]' && c.body.includes('PR 자동 리뷰'));
@@ -90,7 +81,7 @@ jobs:
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: context.issue.number,
+                issue_number: context.payload.pull_request.number,
                 body: review.join('\n')
               });
             }
