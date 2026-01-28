@@ -4,7 +4,7 @@ AudioFallCare 프로젝트에 기여해 주셔서 감사합니다.
 
 ## 기여 방법
 
-1. 이 레포지토리를 Fork 합니다
+1. 이 레포지토리를 Fork 합니다.
 2. 새 브랜치를 생성합니다 (`git checkout -b feat/new-feature`)
 3. 변경사항을 커밋합니다 (`git commit -m 'feat: add new feature'`)
 4. 브랜치에 Push 합니다 (`git push origin feat/new-feature`)
