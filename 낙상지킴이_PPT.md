@@ -4,7 +4,7 @@
 
 **안전으로부터 한걸음, 낙상 지킴이**
 
-![낙상 지킴이 소개](../images/PPT_1.png)
+![낙상 지킴이 소개](https://github.com/FAITRUEE/AudioFallcare_docs/blob/docs/PPT/images/PPT_1.png?raw=true)
 
 ---
 
@@ -14,7 +14,7 @@
 
 그 중, 가장 많은 사고는 **낙상사고**예요
 
-![고령자 안전사고 현황](../images/PPT_2.png)
+![고령자 안전사고 현황](https://github.com/FAITRUEE/AudioFallcare_docs/blob/docs/PPT/images/PPT_2.png?raw=true)
 
 #### 고령자 안전사고 현황
 
@@ -47,7 +47,7 @@
 
 사고 발생 후, 시간 경과에 따른 이상반응은 매우 빠르게 나타납니다
 
-![골든타임](../images/PPT_3.png)
+![골든타임](https://github.com/FAITRUEE/AudioFallcare_docs/blob/docs/PPT/images/PPT_3.png?raw=true)
 
 | 시간 | 상태 | 설명 |
 |------|------|------|
@@ -74,7 +74,7 @@
 - 피보호자는 알림을 직접 종료하여 정상 상태 여부 전달 가능합니다
 - 피보호자의 응답 여부를 통해 실제 사고인지 오탐인지 판단 가능합니다
 
-![주요 기능 - 연동 및 알림](../images/PPT_4.png)
+![주요 기능 - 연동 및 알림](https://github.com/FAITRUEE/AudioFallcare_docs/blob/docs/PPT/images/PPT_4.png?raw=true)
 
 ### 사고 이력 관리
 
@@ -93,13 +93,13 @@
 | 2026.01.26 | 08:58 | 40% |
 | 2026.01.01 | 01:11 | 20% |
 
-![주요 기능 - 사고 이력 관리](../images/PPT_5.png)
+![주요 기능 - 사고 이력 관리](https://github.com/FAITRUEE/AudioFallcare_docs/blob/docs/PPT/images/PPT_5.png?raw=true)
 
 ---
 
 ## 낙상 지킴이의 차별성
 
-![차별성 비교](../images/PPT_6.png)
+![차별성 비교](https://github.com/FAITRUEE/AudioFallcare_docs/blob/docs/PPT/images/PPT_6.png?raw=true)
 
 | 항목 | 주식회사 엔티에스 | 사이렌 케어 | 낙상 지킴이 |
 |------|-----------------|-----------|-----------|
@@ -113,10 +113,10 @@
 
 ## 시스템 구성
 
-![시스템 구성](../images/PPT_7.png)
+![시스템 구성](https://github.com/FAITRUEE/AudioFallcare_docs/blob/docs/PPT/images/PPT_7.png?raw=true)
 
 ---
 
 ## 기술스택
 
-![기술스택](../images/PPT_8.png)
+![기술스택](https://github.com/FAITRUEE/AudioFallcare_docs/blob/docs/PPT/images/PPT_8.png?raw=true)
