@@ -48,6 +48,12 @@
 
 보호자가 먼저 **연결 코드를 발급**하고, 이 코드를 리코더에 입력하여 연결합니다.
 
+## 🚀 배포 주소
+
+- [프론트엔드 웹앱](https://audio-fall-care-web.vercel.app/)
+- [백엔드 Swagger](https://audiofallcare-was-test.onrender.com/swagger-ui/index.html#/)
+- [AI 서버](https://audiofallcare-ai-test.onrender.com/ai/)
+
 ## 진입 화면
 
 ```
